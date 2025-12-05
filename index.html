@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Urmeshree Magesh · Bioinformatics & Neurodegeneration</title>
+  <title>Urmeshree Magesh · Bioinformatics Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* --- Reset --- */
+    /* ---------- RESET ---------- */
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -14,8 +14,8 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #111827 0, #020617 45%, #000000 100%);
-      color: #e5e7eb;
+      background: #f3f4f6;
+      color: #111827;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -26,28 +26,23 @@
     }
 
     .page {
-      max-width: 1040px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 1.5rem 1.25rem 3rem;
     }
 
-    /* --- Header / Nav --- */
+    /* ---------- HEADER / NAV ---------- */
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to right,
-        rgba(15, 23, 42, 0.92),
-        rgba(3, 7, 18, 0.92)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-      margin-bottom: 1.75rem;
+      z-index: 50;
+      background: rgba(249, 250, 251, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e5e7eb;
     }
 
     .nav-inner {
-      max-width: 1040px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0.75rem 1.25rem;
       display: flex;
@@ -59,99 +54,167 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.6rem;
     }
 
-    .brand-badge {
-      width: 32px;
-      height: 32px;
+    .brand-avatar {
+      width: 34px;
+      height: 34px;
       border-radius: 999px;
-      background: conic-gradient(from 180deg, #38bdf8, #a855f7, #f97316, #38bdf8);
+      background: linear-gradient(135deg, #6366f1, #ec4899);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 0.9rem;
-      color: #020617;
+      font-size: 0.95rem;
+      color: #f9fafb;
     }
 
     .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .brand-name {
       font-weight: 600;
       font-size: 0.95rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #e5e7eb;
+    }
+
+    .brand-role {
+      font-size: 0.78rem;
+      color: #6b7280;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 0.75rem;
       font-size: 0.9rem;
-      color: #cbd5f5;
     }
 
     .nav-links a {
-      padding: 0.3rem 0.6rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 999px;
-      transition: background 0.2s ease, color 0.2s ease;
+      color: #4b5563;
+      transition: background 0.15s ease, color 0.15s ease;
     }
 
     .nav-links a:hover {
-      background: rgba(148, 163, 184, 0.2);
-      color: #ffffff;
+      background: #e5e7eb;
+      color: #111827;
     }
 
-    /* --- Hero --- */
+    /* ---------- HERO LAYOUT ---------- */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 3.2fr);
+      gap: 1.8rem;
+      margin-top: 1.8rem;
+      align-items: stretch;
+    }
+
+    /* Left: profile card */
+    .profile-card {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .profile-header {
+      display: flex;
+      gap: 1rem;
       align-items: center;
     }
 
-    .hero-title {
-      font-size: clamp(2.1rem, 3vw + 1.5rem, 2.9rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: #c4b5fd;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text {
-      font-size: 0.98rem;
-      color: #e5e7eb;
-      max-width: 38rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .chip {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.65rem;
+    .avatar-circle {
+      width: 72px;
+      height: 72px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.8);
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #4b5563;
+      overflow: hidden;
     }
 
-    .hero-buttons {
+    .avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .profile-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .profile-role {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .profile-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #166534;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+      align-self: flex-start;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .profile-meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .profile-meta span {
+      display: inline-block;
+      margin-right: 0.35rem;
+    }
+
+    .profile-meta span::after {
+      content: "•";
+      margin-left: 0.35rem;
+      color: #d1d5db;
+    }
+
+    .profile-meta span:last-child::after {
+      content: "";
+      margin: 0;
+    }
+
+    .profile-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-bottom: 0.8rem;
+      gap: 0.6rem;
     }
 
     .btn {
@@ -164,146 +227,316 @@
       font-weight: 500;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+      text-decoration: none;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #6366f1, #ec4899);
       color: #f9fafb;
-      box-shadow: 0 10px 30px rgba(79, 70, 229, 0.45);
+      box-shadow: 0 14px 30px rgba(99, 102, 241, 0.4);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 40px rgba(79, 70, 229, 0.6);
+      box-shadow: 0 18px 40px rgba(99, 102, 241, 0.5);
     }
 
-    .btn-ghost {
-      background: transparent;
-      border-color: rgba(148, 163, 184, 0.6);
-      color: #e5e7eb;
+    .btn-outline {
+      background: #ffffff;
+      border-color: #d1d5db;
+      color: #111827;
     }
 
-    .btn-ghost:hover {
-      background: rgba(148, 163, 184, 0.1);
+    .btn-outline:hover {
+      background: #f3f4f6;
     }
 
-    .hero-links {
+    .profile-links {
       font-size: 0.85rem;
-      color: #9ca3af;
+      color: #4b5563;
     }
 
-    .hero-links a {
-      color: #93c5fd;
+    .profile-links a {
+      color: #2563eb;
     }
 
-    .hero-links a:hover {
+    .profile-links a:hover {
       text-decoration: underline;
     }
 
-    /* Hero side card */
-    .hero-card {
-      border-radius: 1.4rem;
-      padding: 1.25rem 1.3rem;
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 52%),
-                  radial-gradient(circle at bottom, rgba(236, 72, 153, 0.16), transparent 55%),
-                  rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.75);
-      font-size: 0.88rem;
+    .profile-list {
+      margin-top: 0.1rem;
+      font-size: 0.82rem;
+      color: #4b5563;
+      list-style: none;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      margin-bottom: 0.8rem;
-      color: #e5e7eb;
-    }
-
-    .hero-tag-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
-    }
-
-    .hero-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-card p {
-      color: #e5e7eb;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-stat-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .stat-pill {
-      flex: 1 1 90px;
-      padding: 0.55rem 0.7rem;
-      border-radius: 0.9rem;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
-
-    .stat-label {
-      font-size: 0.7rem;
-      color: #9ca3af;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .profile-list li {
       margin-bottom: 0.18rem;
     }
 
-    .stat-value {
-      font-size: 0.85rem;
-      color: #e5e7eb;
+    /* Right: hero text */
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.9rem, 3vw + 1rem, 2.4rem);
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .hero-highlight {
+      color: #2563eb;
+    }
+
+    .hero-intro {
+      font-size: 0.98rem;
+      color: #374151;
+      max-width: 40rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e5edff;
+      color: #1e3a8a;
+      border: 1px solid #d4d4ff;
+    }
+
+    .hero-subgrid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.6fr);
+      gap: 1rem;
+      margin-top: 0.4rem;
     }
 
     .hero-note {
-      font-size: 0.78rem;
-      color: #9ca3af;
+      font-size: 0.9rem;
+      color: #4b5563;
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      padding: 0.95rem 1rem;
+      box-shadow: 0 16px 35px rgba(148, 163, 184, 0.2);
     }
 
-    /* --- Section skeletons --- */
+    .hero-facts {
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      padding: 0.85rem 1rem;
+      font-size: 0.82rem;
+      color: #4b5563;
+      box-shadow: 0 10px 25px rgba(148, 163, 184, 0.18);
+    }
+
+    .hero-facts-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #111827;
+    }
+
+    .hero-facts ul {
+      list-style: none;
+    }
+
+    .hero-facts li {
+      margin-bottom: 0.18rem;
+    }
+
+    /* ---------- GENERIC SECTIONS ---------- */
     section {
       margin-top: 3rem;
     }
 
     section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.2rem;
     }
 
     .section-subtitle {
       font-size: 0.9rem;
-      color: #9ca3af;
-      margin-bottom: 1.1rem;
+      color: #6b7280;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ---------- ABOUT SECTION ---------- */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.25rem 1.3rem;
+      font-size: 0.95rem;
+      color: #374151;
+      box-shadow: 0 18px 45px rgba(148, 163, 184, 0.22);
+    }
+
+    .about-text p + p {
+      margin-top: 0.7rem;
+    }
+
+    .about-facts {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.15rem 1.2rem;
+      font-size: 0.88rem;
+      color: #374151;
+      box-shadow: 0 14px 35px rgba(148, 163, 184, 0.18);
+    }
+
+    .about-facts-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-facts ul {
+      list-style: none;
+    }
+
+    .about-facts li {
+      margin-bottom: 0.25rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    /* ---------- TECHNICAL EXPERTISE (SKILLS) ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border-radius: 1.15rem;
+      border: 1px solid #e5e7eb;
+      padding: 1rem 1.1rem 1.1rem;
+      box-shadow: 0 14px 35px rgba(148, 163, 184, 0.16);
+      font-size: 0.88rem;
+    }
+
+    .skill-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-tag {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+    }
+
+    /* ---------- PLACEHOLDER SECTIONS ---------- */
+    .placeholder-box {
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      padding: 1rem 1.1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      box-shadow: 0 10px 25px rgba(148, 163, 184, 0.16);
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-box {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.25rem 1.3rem;
+      font-size: 0.9rem;
+      color: #374151;
+      box-shadow: 0 14px 35px rgba(148, 163, 184, 0.18);
+    }
+
+    .contact-box p {
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-list a {
+      color: #2563eb;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
     }
 
     footer {
       margin-top: 3rem;
       padding-top: 1rem;
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      border-top: 1px solid #e5e7eb;
       font-size: 0.8rem;
-      color: #9ca3af;
+      color: #6b7280;
       text-align: center;
     }
 
-    @media (max-width: 800px) {
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px) {
       .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-main {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .about-layout {
         grid-template-columns: minmax(0, 1fr);
       }
     }
@@ -319,16 +552,21 @@
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="nav-inner">
       <div class="brand">
-        <div class="brand-badge">UM</div>
-        <div class="brand-text">Urmeshree · Portfolio</div>
+        <div class="brand-avatar">UM</div>
+        <div class="brand-text">
+          <div class="brand-name">Urmeshree Magesh</div>
+          <div class="brand-role">M.S. Bioinformatics · Northeastern University</div>
+        </div>
       </div>
       <nav class="nav-links">
-        <a href="#intro">Intro</a>
-        <a href="#skills">Skills</a>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Technical Expertise</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -337,87 +575,259 @@
   </header>
 
   <main class="page">
-    <!-- HERO / INTRO -->
-    <section id="intro" class="hero">
-      <div>
-        <h1 class="hero-title">Hi, I’m Urmeshree.</h1>
-        <p class="hero-subtitle">
-          Neurology Research Bioinformatics Co-op · MS Bioinformatics @ Northeastern
-        </p>
-        <p class="hero-text">
-          I analyze bulk RNA-seq, single-cell/snRNA-seq, and spatial datasets to understand
-          neurodegenerative disease, especially Alzheimer’s, and to build workflows that are
-          reproducible and easy for collaborators to explore.
-        </p>
-
-        <div class="hero-chips">
-          <span class="chip">Bulk &amp; single-cell RNA-seq</span>
-          <span class="chip">Seurat · DESeq2 · NicheNet</span>
-          <span class="chip">Neurodegeneration · Alzheimer’s</span>
-          <span class="chip">R · Python · R Shiny</span>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <!-- Left profile card -->
+      <aside class="profile-card">
+        <div class="profile-header">
+          <div class="avatar-circle">
+            <!-- Replace with your own profile photo later -->
+            <!-- <img src="profile.jpg" alt="Photo of Urmeshree" /> -->
+            UM
+          </div>
+          <div class="profile-title">
+            <div class="profile-name">Urmeshree Magesh</div>
+            <div class="profile-role">
+              Neurology Research Bioinformatics Co-op<br />
+              M.S. Bioinformatics, Northeastern University
+            </div>
+          </div>
         </div>
 
-        <div class="hero-buttons">
-          <a class="btn btn-primary" href="#projects">See my projects</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <div class="profile-status">
+          <span class="status-dot"></span>
+          Open to research & data collaborations
         </div>
 
-        <p class="hero-links">
-          Boston, MA ·
-          <a href="mailto:urmeshreem@gmail.com">urmeshreem@gmail.com</a> ·
+        <div class="profile-meta">
+          <span>Boston, MA, USA</span>
+          <span>Alzheimer’s & neurodegeneration</span>
+        </div>
+
+        <div class="profile-buttons">
+          <a class="btn btn-primary" href="Urmeshree_Magesh_Resume.pdf" target="_blank">
+            Download resume
+          </a>
+          <a class="btn btn-outline" href="mailto:urmeshreem@gmail.com">
+            Email me
+          </a>
+        </div>
+
+        <div class="profile-links">
+          <strong>Links:</strong>
+          <br />
           <a href="https://www.linkedin.com/in/urmeshree-magesh" target="_blank">LinkedIn</a> ·
           <a href="https://github.com/Urmeshree" target="_blank">GitHub</a>
-        </p>
-      </div>
-
-      <aside class="hero-card">
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          Currently at Brigham &amp; Women’s Hospital / Harvard Medical School
-        </div>
-        <h3>What I work on</h3>
-        <p>
-          Bulk RNA-seq and snRNA-seq analysis in Alzheimer’s disease, integrating pathway
-          analysis and R Shiny dashboards to make neurogenomics results more interpretable.
-        </p>
-
-        <div class="hero-stat-row">
-          <div class="stat-pill">
-            <div class="stat-label">Data types</div>
-            <div class="stat-value">Bulk RNA-seq · snRNA-seq · scRNA-seq · spatial</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-label">Key tools</div>
-            <div class="stat-value">Seurat · DESeq2 · NicheNet · IPA</div>
-          </div>
         </div>
 
-        <p class="hero-note">
-          I like pipelines that are version-controlled, documented, and easy to re-run —
-          from QC and clustering to visualization and reporting.
-        </p>
+        <ul class="profile-list">
+          <li>Currently: Neurology Research Bioinformatics Co-op at Brigham and Women’s Hospital / Harvard Medical School (Butovsky Lab).</li>
+          <li>Training in bulk RNA-seq, snRNA-seq, spatial data, and clinical analytics.</li>
+          <li>Background in Biotechnology with hands-on wet-lab experience.</li>
+        </ul>
       </aside>
+
+      <!-- Right hero content -->
+      <div class="hero-main">
+        <h1 class="hero-tagline">
+          Connecting <span class="hero-highlight">bioinformatics, neurobiology,</span> and clinical data to tell better stories about disease.
+        </h1>
+
+        <p class="hero-intro">
+          I’m a Master’s student in Bioinformatics at Northeastern University and a Neurology Research
+          Bioinformatics Co-op in the Butovsky Lab at Brigham and Women’s Hospital / Harvard Medical School.
+          My work focuses on bulk RNA-seq, single-nucleus/single-cell RNA-seq, and spatial datasets to
+          understand how cell states, signaling, and tissue organization change in Alzheimer’s disease and
+          related neurodegenerative conditions.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Bulk & single-cell / snRNA-seq</span>
+          <span class="tag">Seurat · DESeq2 · NicheNet</span>
+          <span class="tag">Alzheimer’s · Microglia · Astrocytes</span>
+          <span class="tag">R · Python · R Shiny · SQL</span>
+        </div>
+
+        <div class="hero-subgrid">
+          <div class="hero-note">
+            I enjoy building analysis workflows that others can re-run and trust: QC, clustering,
+            trajectory inference, pathway enrichment, and visual dashboards that help biologists
+            and clinicians explore their data without needing to touch the code.
+          </div>
+          <div class="hero-facts">
+            <div class="hero-facts-title">At a glance</div>
+            <ul>
+              <li>Neurology bioinformatics co-op at BWH / Harvard Medical School.</li>
+              <li>Experience across Alzheimer’s, breast cancer, lung cancer, and clinical trial data.</li>
+              <li>Comfortable working at the intersection of wet-lab biology and computation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- EMPTY SKELETON SECTIONS (we'll fill later) -->
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About me</h2>
+      <p class="section-subtitle">
+        A biotechnology foundation, shaped into a bioinformatics career focused on neurodegeneration and data-driven biology.
+      </p>
+
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            I started my journey in <strong>Biotechnology</strong>, learning how experiments are designed, how samples behave
+            in the lab, and why details like controls, timing, and sample handling matter. Through internships in
+            molecular biology, microbiology, and structural bioinformatics, I worked with techniques such as PCR,
+            SDS-PAGE, microbiological screening, collagen extraction, and virtual screening of small molecules.
+          </p>
+          <p>
+            During my Master’s in <strong>Bioinformatics at Northeastern University</strong>, I shifted my focus to
+            computational analysis, working with bulk RNA-seq, single-cell / single-nucleus data, and spatial
+            transcriptomics. In the Butovsky Lab, I analyze Alzheimer’s disease datasets to characterize cell-type
+            specific changes, ligand–receptor communication, and pathway activity in microglia, astrocytes, and
+            other brain cells.
+          </p>
+          <p>
+            I also enjoy working with <strong>clinical and operational data</strong>—for example, analyzing
+            AACT clinical trial datasets and hospital records using SQL, R, Python, Power BI, and R Shiny to build
+            dashboards that make complex data intuitive.
+          </p>
+          <p>
+            Long term, I’m excited about roles where I can combine <strong>experimental awareness</strong> with
+            <strong>computational rigor</strong> to support translational research, biomarker discovery, and
+            better decision-making in neurology and oncology.
+          </p>
+        </div>
+
+        <aside class="about-facts">
+          <div class="about-facts-title">Quick facts</div>
+          <ul>
+            <li><strong>Location:</strong> Boston, MA, USA</li>
+            <li><strong>Current role:</strong> Neurology Research Bioinformatics Co-op, Butovsky Lab (BWH / HMS)</li>
+            <li><strong>Education:</strong> M.S. Bioinformatics (Northeastern, in progress) · B.Tech Biotechnology</li>
+            <li><strong>Interests:</strong> Neurodegeneration, neuroimmunology, single-cell & spatial omics, clinical analytics</li>
+          </ul>
+
+          <div class="badge-row">
+            <span class="badge">Alzheimer’s disease</span>
+            <span class="badge">Microglia & astrocytes</span>
+            <span class="badge">Single-cell & spatial</span>
+            <span class="badge">Clinical trial data</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TECHNICAL EXPERTISE / SKILLS -->
     <section id="skills">
-      <h2>Skills</h2>
-      <p class="section-subtitle">Coming soon – we’ll add your bioinformatics, biotech, and analytics skills here.</p>
+      <h2>Technical expertise</h2>
+      <p class="section-subtitle">
+        A mix of bioinformatics, analytics, and biotechnology skills that I apply in my projects and research.
+      </p>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Programming & tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">tidyverse</span>
+            <span class="skill-tag">ggplot2</span>
+            <span class="skill-tag">DESeq2</span>
+            <span class="skill-tag">Seurat</span>
+            <span class="skill-tag">R Shiny</span>
+            <span class="skill-tag">Git & GitHub</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Genomics & bioinformatics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Bulk RNA-seq</span>
+            <span class="skill-tag">snRNA-seq / scRNA-seq</span>
+            <span class="skill-tag">Spatial RNA-seq</span>
+            <span class="skill-tag">hdWGCNA</span>
+            <span class="skill-tag">NicheNet</span>
+            <span class="skill-tag">IPA, KEGG, DAVID</span>
+            <span class="skill-tag">STRING · PPI networks</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Data & analytics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Snowflake</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Hospital analytics</span>
+            <span class="skill-tag">Clinical trial datasets (AACT)</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Biotech & wet-lab</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PCR & gel electrophoresis</span>
+            <span class="skill-tag">SDS-PAGE</span>
+            <span class="skill-tag">Microbiological screening</span>
+            <span class="skill-tag">Collagen extraction</span>
+            <span class="skill-tag">Silver nanoparticle synthesis</span>
+            <span class="skill-tag">Virtual screening (CDK4)</span>
+            <span class="skill-tag">GLP & biosafety</span>
+          </div>
+        </article>
+      </div>
     </section>
 
+    <!-- EXPERIENCE (placeholder for now) -->
     <section id="experience">
       <h2>Experience</h2>
-      <p class="section-subtitle">Coming soon – we’ll add your BWH, Agastha, TANUVAS, ARMATS, Rapture, etc.</p>
+      <p class="section-subtitle">
+        Detailed role descriptions coming next – including Butovsky Lab, Agastha Inc, TANUVAS, ARMATS Biotek, Rapture Biotech, and more.
+      </p>
+      <div class="placeholder-box">
+        I have worked across neurology research (Butovsky Lab, BWH / Harvard Medical School), clinical and
+        hospital analytics (Agastha Inc), structural bioinformatics and breast cancer research (TANUVAS and
+        ARMATS Biotek), microbiology, and molecular biology internships. We’ll expand this section into a
+        timeline with responsibilities and impact for each role.
+      </div>
     </section>
 
+    <!-- PROJECTS (placeholder for now) -->
     <section id="projects">
       <h2>Projects</h2>
-      <p class="section-subtitle">Coming soon – we’ll add your NSCLC CosMx, clinical trial ML, CDK4, pectin, and more.</p>
+      <p class="section-subtitle">
+        Soon this will highlight selected projects such as NSCLC cellular neighbourhood analysis, clinical trial ML dashboards, CDK4 virtual screening, and pectin-based biomaterials.
+      </p>
+      <div class="placeholder-box">
+        I’ve worked on projects spanning CosMx NSCLC spatial analysis, operational analytics for clinical trials,
+        comparative genomics of neurological disease genes, virtual screening of CDK4 inhibitors, and
+        biomarker discovery in breast cancer. We’ll turn these into individual cards with brief descriptions and key tools.
+      </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
-      <p class="section-subtitle">We’ll turn this into a nice contact box next.</p>
+      <p class="section-subtitle">
+        I’m happy to connect about bioinformatics roles, research collaborations, or just to talk about single-cell and spatial data.
+      </p>
+
+      <div class="contact-box">
+        <p>
+          The best way to reach me is by email or LinkedIn. I’m especially interested in opportunities related
+          to neurodegeneration, single-cell / spatial transcriptomics, clinical analytics, and translational
+          bioinformatics.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:urmeshreem@gmail.com">urmeshreem@gmail.com</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/urmeshree-magesh" target="_blank">linkedin.com/in/urmeshree-magesh</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/Urmeshree" target="_blank">github.com/Urmeshree</a></li>
+          <li><strong>Location:</strong> Boston, MA, USA</li>
+        </ul>
+      </div>
     </section>
 
     <footer>
@@ -430,3 +840,4 @@
   </script>
 </body>
 </html>
+
