@@ -1,843 +1,818 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Urmeshree Magesh · Bioinformatics Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urmeshree Magesh · Bioinformatics Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    /* ---------- RESET ---------- */
-    *, *::before, *::after {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --primary: #06b6d4;
+      --primary-dark: #0891b2;
+      --bg: #0a0e27;
+      --surface: #151933;
+      --surface-light: #1e2444;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-glow: rgba(34, 211, 238, 0.2);
+    }
+
+    [data-theme="light"] {
+      --primary: #0891b2;
+      --primary-dark: #0e7490;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-light: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --accent: #06b6d4;
+      --accent-glow: rgba(6, 182, 212, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f3f4f6;
-      color: #111827;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
     }
 
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
-    /* ---------- HEADER / NAV ---------- */
-    .site-header {
-      position: sticky;
+    /* Navigation */
+    nav {
+      position: fixed;
       top: 0;
-      z-index: 50;
-      background: rgba(249, 250, 251, 0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #e5e7eb;
+      width: 100%;
+      background: rgba(10, 14, 39, 0.85);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(34, 211, 238, 0.1);
     }
 
-    .nav-inner {
-      max-width: 1120px;
+    [data-theme="light"] nav {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .nav-content {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 1.25rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      align-items: center;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .brand-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #6366f1, #ec4899);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .nav-brand {
+      font-size: 1.25rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      color: #f9fafb;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.05rem;
-    }
-
-    .brand-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .brand-role {
-      font-size: 0.78rem;
-      color: #6b7280;
+      font-family: 'Space Grotesk', sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.9rem;
+      gap: 2.5rem;
+      align-items: center;
     }
 
     .nav-links a {
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      color: #4b5563;
-      transition: background 0.15s ease, color 0.15s ease;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
     }
 
     .nav-links a:hover {
-      background: #e5e7eb;
-      color: #111827;
+      color: var(--text);
     }
 
-    /* ---------- HERO LAYOUT ---------- */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.3fr) minmax(0, 3.2fr);
-      gap: 1.8rem;
-      margin-top: 1.8rem;
-      align-items: stretch;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    /* Left: profile card */
-    .profile-card {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.5rem 1.4rem;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .profile-header {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .avatar-circle {
-      width: 72px;
-      height: 72px;
-      border-radius: 999px;
-      background: #e5e7eb;
+    .theme-btn {
+      background: var(--surface-light);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #4b5563;
-      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
     }
 
-    .avatar-circle img {
+    .theme-btn:hover {
+      transform: rotate(15deg);
+      border-color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 8rem 2rem 4rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .profile-card {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 120px;
+    }
+
+    .profile-image-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .profile-image {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
       object-fit: cover;
-      display: block;
+      border: 4px solid var(--surface-light);
+      box-shadow: 0 0 0 4px var(--accent-glow);
     }
 
-    .profile-title {
+    .profile-image-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .profile-name {
-      font-size: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
       font-weight: 700;
+      color: white;
+      border: 4px solid var(--surface-light);
+      box-shadow: 0 0 0 4px var(--accent-glow);
     }
 
-    .profile-role {
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
-
-    .profile-status {
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #ecfdf3;
-      color: #166534;
-      font-size: 0.78rem;
-      font-weight: 500;
-      margin-top: 0.25rem;
-      align-self: flex-start;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 auto 2rem;
+      width: fit-content;
     }
 
     .status-dot {
       width: 8px;
       height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
+      border-radius: 50%;
+      background: #10b981;
+      animation: pulse 2s infinite;
     }
 
-    .profile-meta {
-      font-size: 0.85rem;
-      color: #6b7280;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+      50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
     }
 
-    .profile-meta span {
-      display: inline-block;
-      margin-right: 0.35rem;
+    .profile-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
     }
 
-    .profile-meta span::after {
-      content: "•";
-      margin-left: 0.35rem;
-      color: #d1d5db;
+    .profile-title {
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
     }
 
-    .profile-meta span:last-child::after {
-      content: "";
-      margin: 0;
-    }
-
-    .profile-buttons {
+    .profile-location {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 999px;
-      padding: 0.55rem 1.2rem;
-      font-size: 0.88rem;
-      font-weight: 500;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
-      text-decoration: none;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #ec4899);
-      color: #f9fafb;
-      box-shadow: 0 14px 30px rgba(99, 102, 241, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(99, 102, 241, 0.5);
-    }
-
-    .btn-outline {
-      background: #ffffff;
-      border-color: #d1d5db;
-      color: #111827;
-    }
-
-    .btn-outline:hover {
-      background: #f3f4f6;
-    }
-
-    .profile-links {
-      font-size: 0.85rem;
-      color: #4b5563;
-    }
-
-    .profile-links a {
-      color: #2563eb;
-    }
-
-    .profile-links a:hover {
-      text-decoration: underline;
-    }
-
-    .profile-list {
-      margin-top: 0.1rem;
-      font-size: 0.82rem;
-      color: #4b5563;
-      list-style: none;
-    }
-
-    .profile-list li {
-      margin-bottom: 0.18rem;
-    }
-
-    /* Right: hero text */
-    .hero-main {
+    .profile-actions {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
 
-    .hero-tagline {
-      font-size: clamp(1.9rem, 3vw + 1rem, 2.4rem);
-      font-weight: 700;
-      color: #111827;
+    .btn {
+      padding: 0.875rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
     }
 
-    .hero-highlight {
-      color: #2563eb;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      box-shadow: 0 8px 24px var(--accent-glow);
     }
 
-    .hero-intro {
-      font-size: 0.98rem;
-      color: #374151;
-      max-width: 40rem;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px var(--accent-glow);
     }
 
-    .hero-tags {
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(34, 211, 238, 0.3);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(34, 211, 238, 0.05);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(34, 211, 238, 0.1);
+    }
+
+    .social-link {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+      background: var(--surface-light);
+      border-radius: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 1px solid rgba(34, 211, 238, 0.1);
+    }
+
+    .social-link:hover {
+      background: rgba(34, 211, 238, 0.1);
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .main-content {
+      min-height: 100vh;
+    }
+
+    .intro {
+      margin-bottom: 3rem;
+    }
+
+    .intro h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .expertise-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.2rem;
-      margin-bottom: 0.4rem;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
     }
 
     .tag {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #e5edff;
-      color: #1e3a8a;
-      border: 1px solid #d4d4ff;
+      padding: 0.625rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
     }
 
-    .hero-subgrid {
+    .stats-grid {
       display: grid;
-      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.6fr);
-      gap: 1rem;
-      margin-top: 0.4rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
     }
 
-    .hero-note {
-      font-size: 0.9rem;
-      color: #4b5563;
-      background: #ffffff;
-      border-radius: 1rem;
-      border: 1px solid #e5e7eb;
-      padding: 0.95rem 1rem;
-      box-shadow: 0 16px 35px rgba(148, 163, 184, 0.2);
-    }
-
-    .hero-facts {
-      background: #ffffff;
-      border-radius: 1rem;
-      border: 1px solid #e5e7eb;
-      padding: 0.85rem 1rem;
-      font-size: 0.82rem;
-      color: #4b5563;
-      box-shadow: 0 10px 25px rgba(148, 163, 184, 0.18);
-    }
-
-    .hero-facts-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      color: #111827;
-    }
-
-    .hero-facts ul {
-      list-style: none;
-    }
-
-    .hero-facts li {
-      margin-bottom: 0.18rem;
-    }
-
-    /* ---------- GENERIC SECTIONS ---------- */
-    section {
-      margin-top: 3rem;
-    }
-
-    section h2 {
-      font-size: 1.35rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 1.2rem;
-    }
-
-    /* ---------- ABOUT SECTION ---------- */
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 1.6rem;
-      align-items: flex-start;
-    }
-
-    .about-text {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.25rem 1.3rem;
-      font-size: 0.95rem;
-      color: #374151;
-      box-shadow: 0 18px 45px rgba(148, 163, 184, 0.22);
-    }
-
-    .about-text p + p {
-      margin-top: 0.7rem;
-    }
-
-    .about-facts {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.15rem 1.2rem;
-      font-size: 0.88rem;
-      color: #374151;
-      box-shadow: 0 14px 35px rgba(148, 163, 184, 0.18);
-    }
-
-    .about-facts-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .about-facts ul {
-      list-style: none;
-    }
-
-    .about-facts li {
-      margin-bottom: 0.25rem;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .badge {
-      font-size: 0.78rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #1d4ed8;
-    }
-
-    /* ---------- TECHNICAL EXPERTISE (SKILLS) ---------- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.1rem;
-    }
-
-    .skill-card {
-      background: #ffffff;
-      border-radius: 1.15rem;
-      border: 1px solid #e5e7eb;
-      padding: 1rem 1.1rem 1.1rem;
-      box-shadow: 0 14px 35px rgba(148, 163, 184, 0.16);
-      font-size: 0.88rem;
-    }
-
-    .skill-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-      color: #111827;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.2rem;
-    }
-
-    .skill-tag {
-      font-size: 0.78rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #3730a3;
-    }
-
-    /* ---------- PLACEHOLDER SECTIONS ---------- */
-    .placeholder-box {
-      background: #ffffff;
-      border-radius: 1rem;
-      border: 1px solid #e5e7eb;
-      padding: 1rem 1.1rem;
-      font-size: 0.9rem;
-      color: #6b7280;
-      box-shadow: 0 10px 25px rgba(148, 163, 184, 0.16);
-    }
-
-    /* ---------- CONTACT ---------- */
-    .contact-box {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.25rem 1.3rem;
-      font-size: 0.9rem;
-      color: #374151;
-      box-shadow: 0 14px 35px rgba(148, 163, 184, 0.18);
-    }
-
-    .contact-box p {
-      margin-bottom: 0.7rem;
-    }
-
-    .contact-list {
-      list-style: none;
-      font-size: 0.9rem;
-    }
-
-    .contact-list li {
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-list a {
-      color: #2563eb;
-    }
-
-    .contact-list a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 3rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e5e7eb;
-      font-size: 0.8rem;
-      color: #6b7280;
+    .stat-card {
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(34, 211, 238, 0.15);
       text-align: center;
     }
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 960px) {
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+    }
+
+    /* Experience Cards */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .experience-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+    }
+
+    .experience-card:hover {
+      border-color: rgba(34, 211, 238, 0.4);
+      transform: translateX(8px);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-date {
+      padding: 0.375rem 0.875rem;
+      background: rgba(34, 211, 238, 0.1);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .experience-role {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-company {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .experience-description {
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .experience-description ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .experience-description li {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Skills Grid */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+    }
+
+    .skill-category h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .skill-icon {
+      font-size: 1.5rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+    }
+
+    .skill-item {
+      padding: 0.5rem 1rem;
+      background: var(--surface-light);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: var(--text);
+      transition: all 0.3s;
+    }
+
+    .skill-item:hover {
+      background: rgba(34, 211, 238, 0.1);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(34, 211, 238, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tech-tag {
+      padding: 0.375rem 0.875rem;
+      background: rgba(34, 211, 238, 0.1);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 4rem;
+      text-align: center;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 50%);
+      opacity: 0.3;
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link-card {
+      padding: 1.25rem 2rem;
+      background: var(--surface-light);
+      border: 2px solid rgba(34, 211, 238, 0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .contact-link-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--accent-glow);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(34, 211, 238, 0.1);
+      color: var(--text-muted);
+      margin-top: 5rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 1024px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
+        gap: 3rem;
       }
-      .hero-main {
-        order: -1;
-      }
-    }
 
-    @media (max-width: 780px) {
-      .about-layout {
-        grid-template-columns: minmax(0, 1fr);
+      .profile-card {
+        position: relative;
+        top: 0;
       }
-    }
 
-    @media (max-width: 640px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
       .nav-links {
-        font-size: 0.86rem;
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 6rem 1.5rem 3rem;
+      }
+
+      .intro h1 {
+        font-size: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 2.5rem 1.5rem;
       }
     }
   </style>
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-avatar">UM</div>
-        <div class="brand-text">
-          <div class="brand-name">Urmeshree Magesh</div>
-          <div class="brand-role">M.S. Bioinformatics · Northeastern University</div>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#hero">Home</a>
+  <nav>
+    <div class="nav-content">
+      <div class="nav-brand">Urmeshree Magesh</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Technical Expertise</a>
         <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-      </nav>
+      </div>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
     </div>
-  </header>
+  </nav>
 
-  <main class="page">
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <!-- Left profile card -->
-      <aside class="profile-card">
-        <div class="profile-header">
-          <div class="avatar-circle">
-            /* profile photo  /*
-            <img src="profile.jpeg" alt="Photo of Urmeshree"
-            UM
-          </div>
-          <div class="profile-title">
-            <div class="profile-name">Urmeshree Magesh</div>
-            <div class="profile-role">
-              Neurology Research Bioinformatics Co-op<br />
-              M.S. Bioinformatics, Northeastern University
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-status">
-          <span class="status-dot"></span>
-          Open to research & data collaborations
-        </div>
-
-        <div class="profile-meta">
-          <span>Boston, MA, USA</span>
-          <span>Alzheimer’s & neurodegeneration</span>
-        </div>
-
-        <div class="profile-buttons">
-          <a class="btn btn-primary" href="Urmeshree_Magesh_Resume.pdf" target="_blank">
-            Download resume
-          </a>
-          <a class="btn btn-outline" href="mailto:urmeshreem@gmail.com">
-            Email me
-          </a>
-        </div>
-
-        <div class="profile-links">
-          <strong>Links:</strong>
-          <br />
-          <a href="https://www.linkedin.com/in/urmeshree-magesh" target="_blank">LinkedIn</a> ·
-          <a href="https://github.com/Urmeshree" target="_blank">GitHub</a>
-        </div>
-
-        <ul class="profile-list">
-          <li>Currently: Neurology Research Bioinformatics Co-op at Brigham and Women’s Hospital / Harvard Medical School (Butovsky Lab).</li>
-          <li>Training in bulk RNA-seq, snRNA-seq, spatial data, and clinical analytics.</li>
-          <li>Background in Biotechnology with hands-on wet-lab experience.</li>
-        </ul>
-      </aside>
-
-      <!-- Right hero content -->
-      <div class="hero-main">
-        <h1 class="hero-tagline">
-          Connecting <span class="hero-highlight">bioinformatics, neurobiology,</span> and clinical data to tell better stories about disease.
-        </h1>
-
-        <p class="hero-intro">
-          I’m a Master’s student in Bioinformatics at Northeastern University and a Neurology Research
-          Bioinformatics Co-op in the Butovsky Lab at Brigham and Women’s Hospital / Harvard Medical School.
-          My work focuses on bulk RNA-seq, single-nucleus/single-cell RNA-seq, and spatial datasets to
-          understand how cell states, signaling, and tissue organization change in Alzheimer’s disease and
-          related neurodegenerative conditions.
-        </p>
-
-        <div class="hero-tags">
-          <span class="tag">Bulk & single-cell / snRNA-seq</span>
-          <span class="tag">Seurat · DESeq2 · NicheNet</span>
-          <span class="tag">Alzheimer’s · Microglia · Astrocytes</span>
-          <span class="tag">R · Python · R Shiny · SQL</span>
-        </div>
-
-        <div class="hero-subgrid">
-          <div class="hero-note">
-            I enjoy building analysis workflows that others can re-run and trust: QC, clustering,
-            trajectory inference, pathway enrichment, and visual dashboards that help biologists
-            and clinicians explore their data without needing to touch the code.
-          </div>
-          <div class="hero-facts">
-            <div class="hero-facts-title">At a glance</div>
-            <ul>
-              <li>Neurology bioinformatics co-op at BWH / Harvard Medical School.</li>
-              <li>Experience across Alzheimer’s, breast cancer, lung cancer, and clinical trial data.</li>
-              <li>Comfortable working at the intersection of wet-lab biology and computation.</li>
-            </ul>
-          </div>
-        </div>
+  <div class="hero" id="home">
+    <aside class="profile-card">
+      <div class="profile-image-container">
+        <!-- Replace this with your actual photo: <img src="your-photo.jpg" alt="Urmeshree Magesh" class="profile-image"> -->
+        <div class="profile-image-placeholder">UM</div>
       </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>About me</h2>
-      <p class="section-subtitle">
-        A biotechnology foundation, shaped into a bioinformatics career focused on neurodegeneration and data-driven biology.
-      </p>
-
-      <div class="about-layout">
-        <div class="about-text">
-          <p>
-            I started my journey in <strong>Biotechnology</strong>, learning how experiments are designed, how samples behave
-            in the lab, and why details like controls, timing, and sample handling matter. Through internships in
-            molecular biology, microbiology, and structural bioinformatics, I worked with techniques such as PCR,
-            SDS-PAGE, microbiological screening, collagen extraction, and virtual screening of small molecules.
-          </p>
-          <p>
-            During my Master’s in <strong>Bioinformatics at Northeastern University</strong>, I shifted my focus to
-            computational analysis, working with bulk RNA-seq, single-cell / single-nucleus data, and spatial
-            transcriptomics. In the Butovsky Lab, I analyze Alzheimer’s disease datasets to characterize cell-type
-            specific changes, ligand–receptor communication, and pathway activity in microglia, astrocytes, and
-            other brain cells.
-          </p>
-          <p>
-            I also enjoy working with <strong>clinical and operational data</strong>—for example, analyzing
-            AACT clinical trial datasets and hospital records using SQL, R, Python, Power BI, and R Shiny to build
-            dashboards that make complex data intuitive.
-          </p>
-          <p>
-            Long term, I’m excited about roles where I can combine <strong>experimental awareness</strong> with
-            <strong>computational rigor</strong> to support translational research, biomarker discovery, and
-            better decision-making in neurology and oncology.
-          </p>
-        </div>
-
-        <aside class="about-facts">
-          <div class="about-facts-title">Quick facts</div>
-          <ul>
-            <li><strong>Location:</strong> Boston, MA, USA</li>
-            <li><strong>Current role:</strong> Neurology Research Bioinformatics Co-op, Butovsky Lab (BWH / HMS)</li>
-            <li><strong>Education:</strong> M.S. Bioinformatics (Northeastern, in progress) · B.Tech Biotechnology</li>
-            <li><strong>Interests:</strong> Neurodegeneration, neuroimmunology, single-cell & spatial omics, clinical analytics</li>
-          </ul>
-
-          <div class="badge-row">
-            <span class="badge">Alzheimer’s disease</span>
-            <span class="badge">Microglia & astrocytes</span>
-            <span class="badge">Single-cell & spatial</span>
-            <span class="badge">Clinical trial data</span>
-          </div>
-        </aside>
+      
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Open for Collaborations
       </div>
-    </section>
-
-    <!-- TECHNICAL EXPERTISE / SKILLS -->
-    <section id="skills">
-      <h2>Technical expertise</h2>
-      <p class="section-subtitle">
-        A mix of bioinformatics, analytics, and biotechnology skills that I apply in my projects and research.
-      </p>
-
-      <div class="skills-grid">
-        <article class="skill-card">
-          <h3>Programming & tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">R</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">tidyverse</span>
-            <span class="skill-tag">ggplot2</span>
-            <span class="skill-tag">DESeq2</span>
-            <span class="skill-tag">Seurat</span>
-            <span class="skill-tag">R Shiny</span>
-            <span class="skill-tag">Git & GitHub</span>
-          </div>
-        </article>
-
-        <article class="skill-card">
-          <h3>Genomics & bioinformatics</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Bulk RNA-seq</span>
-            <span class="skill-tag">snRNA-seq / scRNA-seq</span>
-            <span class="skill-tag">Spatial RNA-seq</span>
-            <span class="skill-tag">hdWGCNA</span>
-            <span class="skill-tag">NicheNet</span>
-            <span class="skill-tag">IPA, KEGG, DAVID</span>
-            <span class="skill-tag">STRING · PPI networks</span>
-          </div>
-        </article>
-
-        <article class="skill-card">
-          <h3>Data & analytics</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Snowflake</span>
-            <span class="skill-tag">Power BI</span>
-            <span class="skill-tag">Tableau</span>
-            <span class="skill-tag">Hospital analytics</span>
-            <span class="skill-tag">Clinical trial datasets (AACT)</span>
-          </div>
-        </article>
-
-        <article class="skill-card">
-          <h3>Biotech & wet-lab</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">PCR & gel electrophoresis</span>
-            <span class="skill-tag">SDS-PAGE</span>
-            <span class="skill-tag">Microbiological screening</span>
-            <span class="skill-tag">Collagen extraction</span>
-            <span class="skill-tag">Silver nanoparticle synthesis</span>
-            <span class="skill-tag">Virtual screening (CDK4)</span>
-            <span class="skill-tag">GLP & biosafety</span>
-          </div>
-        </article>
+      
+      <h2 class="profile-name">Urmeshree Magesh</h2>
+      <p class="profile-title">Bioinformatics Researcher<br>Northeastern University</p>
+      
+      <div class="profile-location">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        Boston, MA, USA
       </div>
-    </section>
-
-    <!-- EXPERIENCE (placeholder for now) -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <p class="section-subtitle">
-        Detailed role descriptions coming next – including Butovsky Lab, Agastha Inc, TANUVAS, ARMATS Biotek, Rapture Biotech, and more.
-      </p>
-      <div class="placeholder-box">
-        I have worked across neurology research (Butovsky Lab, BWH / Harvard Medical School), clinical and
-        hospital analytics (Agastha Inc), structural bioinformatics and breast cancer research (TANUVAS and
-        ARMATS Biotek), microbiology, and molecular biology internships. We’ll expand this section into a
-        timeline with responsibilities and impact for each role.
+      
+      <div class="profile-actions">
+        <a href="Urmeshree_Magesh_Resume.pdf" class="btn btn-primary" download>
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Download Resume
+        </a>
+        <a href="mailto:urmeshreem@gmail.com" class="btn btn-outline">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Email Me
+        </a>
       </div>
-    </section>
-
-    <!-- PROJECTS (placeholder for now) -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <p class="section-subtitle">
-        Soon this will highlight selected projects such as NSCLC cellular neighbourhood analysis, clinical trial ML dashboards, CDK4 virtual screening, and pectin-based biomaterials.
-      </p>
-      <div class="placeholder-box">
-        I’ve worked on projects spanning CosMx NSCLC spatial analysis, operational analytics for clinical trials,
-        comparative genomics of neurological disease genes, virtual screening of CDK4 inhibitors, and
-        biomarker discovery in breast cancer. We’ll turn these into individual cards with brief descriptions and key tools.
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="section-subtitle">
-        I’m happy to connect about bioinformatics roles, research collaborations, or just to talk about single-cell and spatial data.
-      </p>
-
-      <div class="contact-box">
-        <p>
-          The best way to reach me is by email or LinkedIn. I’m especially interested in opportunities related
-          to neurodegeneration, single-cell / spatial transcriptomics, clinical analytics, and translational
-          bioinformatics.
-        </p>
-        <ul class="contact-list">
-          <li><strong>Email:</strong> <a href="mailto:urmeshreem@gmail.com">urmeshreem@gmail.com</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/urmeshree-magesh" target="_blank">linkedin.com/in/urmeshree-magesh</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/Urmeshree" target="_blank">github.com/Urmeshree</a></li>
-          <li><strong>Location:</strong> Boston, MA, USA</li>
-        </ul>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Urmeshree Magesh · Built with HTML &amp; CSS · Hosted on GitHub Pages
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-
+      
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/urmeshree-magesh" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/Urmeshree" target="_blank" rel="noopener" class="social-link" title="GitHub">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5
