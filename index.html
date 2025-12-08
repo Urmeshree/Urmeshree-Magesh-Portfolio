@@ -397,119 +397,79 @@
       border: 1px solid #e0e7ff;
     }
 
-    /* Projects Section */
-    .projects-featured {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
 
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
 
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
 
-    .project-header {
-      padding: 1.8rem;
-      border-bottom: 1px solid #f0f0f0;
-    }
+.project-header {
+  padding: 1.8rem;
+  border-bottom: 1px solid #f0f0f0;
+}
 
-    .project-header h3 {
-      color: #333;
-      font-size: 1.05rem;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
+.project-header h3 {
+  color: #333;
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
 
-    .project-badge {
-      display: inline-block;
-      background: #f0f4ff;
-      color: #667eea;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
+.project-badge {
+  display: inline-block;
+  background: #f0f4ff;
+  color: #667eea;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
 
-    .project-content {
-      padding: 1.8rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
+.project-content {
+  padding: 1.8rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-    .project-content p {
-      color: #666;
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-      font-size: 0.93rem;
-    }
+.project-content p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-size: 0.93rem;
+}
 
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
 
-    .meta-tag {
-      background: #f8f9fa;
-      color: #667eea;
-      padding: 0.3rem 0.8rem;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .projects-more {
-      margin-top: 3rem;
-    }
-
-    .projects-more h3 {
-      color: #667eea;
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .projects-scroll {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-      padding: 1rem 0;
-      scrollbar-width: thin;
-      scrollbar-color: #667eea #f0f0f0;
-    }
-
-    .projects-scroll::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .projects-scroll::-webkit-scrollbar-track {
-      background: #f0f0f0;
-      border-radius: 10px;
-    }
-
-    .projects-scroll::-webkit-scrollbar-thumb {
-      background: #667eea;
-      border-radius: 10px;
-    }
-
-    .projects-scroll .project-card {
-      min-width: 360px;
-      flex-shrink: 0;
-    }
+.meta-tag {
+  background: #f8f9fa;
+  color: #667eea;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
 
     /* Experience Section */
     #experience {
@@ -681,7 +641,7 @@
         gap: 2rem;
       }
 
-      .projects-featured {
+      .projects-grid {
         grid-template-columns: 1fr;
       }
 
@@ -743,9 +703,6 @@
     <div class="hero-container">
       <div class="hero-left">
         <div class="profile-image">
-          <!-- If you upload profile.jpg, uncomment the next line and remove the U -->
-          <!-- <img src="profile.jpg" alt="Photo of Urmeshree" /> -->
-          U
         </div>
         <h1>Urmeshree Magesh</h1>
         <p class="subtitle">Neurology Research Bioinformatics Co-op</p>
@@ -759,15 +716,14 @@
 
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/urmeshree-magesh" class="social-icon" target="_blank" title="LinkedIn">in</a>
-          <a href="https://github.com/Urmeshree" class="social-icon" target="_blank" title="GitHub">🐙</a>
+          <a href="https://github.com/Urmeshree" class="social-icon" target="_blank" title="GitHub"></a>
         </div>
       </div>
 
       <div class="hero-right">
         <h2 class="hero-title">
-          Exploring brain disease through <span class="highlight">single-cell, spatial, and clinical data.</span>
+          Transforming Biological Data Through <span class="highlight">Multiomics and Computational Biology</span>
         </h2>
-
         <p class="hero-description">
           I’m a bioinformatics graduate focused on understanding neurodegenerative disease, especially Alzheimer’s.
           At Brigham and Women’s Hospital / Harvard Medical School (Butovsky Lab), I work with bulk RNA-seq,
@@ -800,7 +756,7 @@
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
       <div class="about-text">
-        <h3>Bridging biotechnology, wet-lab experience, and neuro-focused bioinformatics.</h3>
+        <h3>Bridging Tech and Life science, and neuro-focused Bioinformatics.</h3>
         <p>
           I started with a strong foundation in <strong>Biotechnology</strong>, where I spent time in the lab working on
           molecular biology, microbiology, and biomaterials projects — from PCR, SDS-PAGE, and microbiological screening
@@ -912,7 +868,7 @@
       <div class="timeline-item">
         <h3>Neurology Research Bioinformatics Co-op</h3>
         <p class="company">Brigham and Women’s Hospital · Harvard Medical School – Butovsky Lab</p>
-        <p class="date">May 2025 – Present · Boston, MA · On-site</p>
+        <p class="date">May 2025 – Dec 2025 · Boston, MA · On-site</p>
         <ul>
           <li>Performed differential expression analysis on bulk RNA-seq using DESeq2 to identify disease-associated genes in Alzheimer’s disease.</li>
           <li>Analyzed snRNA-seq and scRNA-seq datasets to characterize cell-type-specific transcriptional changes in microglia, astrocytes, and vascular cells.</li>
@@ -936,200 +892,174 @@
       </div>
 
       <div class="timeline-item">
-        <h3>Bioinformatics Research Intern</h3>
+        <h3>Computational Biology Intern</h3>
         <p class="company">Tamil Nadu Veterinary and Animal Sciences University (TANUVAS)</p>
         <p class="date">Jan 2023 – Apr 2023 · Chennai, India · On-site</p>
         <ul>
           <li>Conducted a structural bioinformatics project identifying allosteric inhibitors of Cyclin Dependent Kinase 4 (CDK4) using BIOVIA Discovery Studio.</li>
           <li>Focused on improving Palbociclib effectiveness by targeting p27-bound CDK4 and exploring allosteric ligand binding from natural product databases.</li>
           <li>Gained experience in molecular docking, protein–ligand interaction analysis, and virtual screening workflows.</li>
+          <li>Focuses on identifying allosteric inhibitors of Cyclin Dependent Kinase 4 (CDK4), using BIOVIA Discovery Studio 4.0 for molecular modeling and simulation. The aim was to improve the effectiveness of the drug Palbociclib in treating hormone-receptor-positive, HER2-negative, advanced breast cancer by targeting the p27-bound CDK4 complex.</li>
         </ul>
       </div>
-
-      <div class="timeline-item">
-        <h3>Project Intern – Breast Cancer Biomarkers</h3>
-        <p class="company">ARMATS Biotek – India</p>
-        <p class="date">May 2022 – Aug 2022 · Remote</p>
-        <ul>
-          <li>Developed a bioinformatics pipeline to identify prognostic biomarkers for breast cancer using RNA-seq datasets.</li>
-          <li>Performed differential expression analysis with DESeq2 and built protein–protein interaction networks using STRING to identify hub genes.</li>
-          <li>Used KEGG, DAVID, and survival analysis (KM Plotter) to connect gene expression patterns with patient outcomes and treatment response.</li>
-        </ul>
-      </div>
-
+  
       <div class="timeline-item">
         <h3>Research Intern – Molecular Biology</h3>
         <p class="company">Rapture Biotech International Pvt Ltd</p>
         <p class="date">Jul 2021 – Aug 2021 · Chennai, India · On-site</p>
         <ul>
-          <li>Performed DNA isolation, PCR setup and optimization, and agarose gel electrophoresis for amplicon verification.</li>
+          <li>Performed core molecular biology techniques, including DNA isolation, PCR setup and optimization, and agarose gel electrophoresis to verify amplicons.</li>
           <li>Ran SDS-PAGE for protein separation and profiling, including sample prep, gel casting, and band interpretation.</li>
-          <li>Assisted with basic protein purification workflows and spectrophotometric quantification using centrifuges and analytical instruments.</li>
-          <li>Contributed wet-lab support to a project extracting and characterizing pectin from waste fruit peels to formulate a curl-defining hair gel as a natural biopolymer-based product.</li>
+          <li>Assisted with basic protein purification workflows and spectrophotometric quantification using centrifuges and analytical instruments for sample processing.</li>
+          <li>Gained exposure to flow cytometry principles and sample preparation, learning how fluorescently labeled cells are analyzed for population profiling and quality control.</li>
+          <li>Worked under GLP, biosafety, and documentation standards for all experiments, maintaining accurate lab notebooks and records.</li>
+          <li>Contributed wet-lab support to a project on extraction, characterization, and application of pectin from waste fruit peel to formulate a curl-defining hair gel as a natural biopolymer-based product.</li>
         </ul>
       </div>
-
-      <div class="timeline-item">
-        <h3>Intern – Microbiological Screening</h3>
-        <p class="company">Institute of Veterinary Medicine and Research</p>
-        <p class="date">Feb 2022 – Mar 2022 · Chennai, India · On-site</p>
-        <ul>
-          <li>Performed microbial culture, isolation, and identification using standard microbiology techniques.</li>
-          <li>Applied biochemical assays for microbial characterization and followed biosafety and sterilization protocols.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Internship Trainee – Deep Learning for Medical Imaging</h3>
-        <p class="company">Inetz Technologies</p>
-        <p class="date">Jul 2021 · On-site</p>
-        <ul>
-          <li>Worked with convolutional neural networks (CNNs) for medical image classification across X-ray, MRI, ultrasound, and endoscopy data.</li>
-          <li>Helped improve abnormality detection accuracy and gained experience in PyTorch-based deep learning pipelines.</li>
-        </ul>
-      </div>
-
+     
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">Selected Projects</h2>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
 
-    <!-- 3 main featured projects -->
-    <div class="projects-featured">
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Cellular Neighborhoods in Non–Small Cell Lung Cancer</h3>
-          <span class="project-badge">CosMx Spatial · NSCLC</span>
-        </div>
-        <div class="project-content">
-          <p>
-            Used CosMx FFPE spatial transcriptomics data to study how tumor, immune, and stromal cells are organized
-            within NSCLC tissue and how local neighborhoods relate to invasion and immune activity.
-          </p>
-          <div class="project-meta">
-            <span class="meta-tag">R · Seurat</span>
-            <span class="meta-tag">Spatial coordinates</span>
-            <span class="meta-tag">KNN neighborhoods</span>
-            <span class="meta-tag">Ligand–receptor panels</span>
-          </div>
-          <p>
-            Built k-nearest-neighbor graphs on cell centroids, computed a tumor invasion score, and summarized
-            checkpoint/chemokine signaling between immune “sender” and tumor “receiver” cells.
-          </p>
-        </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Cellular Neighborhoods in Non–Small Cell Lung Cancer</h3>
+        <span class="project-badge">CosMx Spatial · NSCLC</span>
       </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Operational Analytics for Clinical Trial Optimization</h3>
-          <span class="project-badge">Clinical Trial Data · ML</span>
+      <div class="project-content">
+        <p>
+          Used CosMx FFPE spatial transcriptomics data to study how tumor, immune, and stromal cells are organized
+          within NSCLC tissue and how local neighborhoods relate to invasion and immune activity.
+        </p>
+        <div class="project-meta">
+          <span class="meta-tag">R · Seurat</span>
+          <span class="meta-tag">Spatial coordinates</span>
+          <span class="meta-tag">KNN neighborhoods</span>
+          <span class="meta-tag">Ligand–receptor panels</span>
         </div>
-        <div class="project-content">
-          <p>
-            Used AACT clinical trial datasets (Phase II/III oncology) in Snowflake to model patient enrollment and
-            trial feasibility, building dashboards for site selection and recruitment strategy.
-          </p>
-          <div class="project-meta">
-            <span class="meta-tag">SQL · Snowflake</span>
-            <span class="meta-tag">R · ML</span>
-            <span class="meta-tag">Power BI</span>
-          </div>
-          <p>
-            Built predictive models (logistic regression, trees, k-NN) and dashboards showing enrollment funnels,
-            demographic breakdowns, and site performance to support CRO-style decision-making.
-          </p>
-        </div>
+        <p>
+          Built k-nearest-neighbor graphs on cell centroids, computed a tumor invasion score, and summarized
+          checkpoint/chemokine signaling between immune "sender" and tumor "receiver" cells.
+        </p>
       </div>
+    </div>
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Comparative Genomics of Disease-Associated Genes</h3>
-          <span class="project-badge">Genomics · Visualization</span>
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Operational Analytics for Clinical Trial Optimization</h3>
+        <span class="project-badge">Clinical Trial Data · ML</span>
+      </div>
+      <div class="project-content">
+        <p>
+          Used AACT clinical trial datasets (Phase II/III oncology) in Snowflake to model patient enrollment and
+          trial feasibility, building dashboards for site selection and recruitment strategy.
+        </p>
+        <div class="project-meta">
+          <span class="meta-tag">SQL · Snowflake</span>
+          <span class="meta-tag">R · ML</span>
+          <span class="meta-tag">Power BI</span>
         </div>
-        <div class="project-content">
-          <p>
-            Conducted comparative genomics analysis of genes linked to rare neurological disorders using data from
-            NCBI and Ensembl, focusing on conserved mutations and expression patterns.
-          </p>
-          <div class="project-meta">
-            <span class="meta-tag">R</span>
-            <span class="meta-tag">SQL</span>
-            <span class="meta-tag">ggplot2 · Power BI</span>
-          </div>
-          <p>
-            Built interactive heatmaps, pathway diagrams, and mutation-frequency plots to highlight candidate genes
-            with strong clinical relevance for future diagnostic and trial design work.
-          </p>
+        <p>
+          Built predictive models (logistic regression, trees, k-NN) and dashboards showing enrollment funnels,
+          demographic breakdowns, and site performance to support CRO-style decision-making.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Comparative Genomics of Disease-Associated Genes</h3>
+        <span class="project-badge">Genomics · Visualization</span>
+      </div>
+      <div class="project-content">
+        <p>
+          Conducted comparative genomics analysis of genes linked to rare neurological disorders using data from
+          NCBI and Ensembl, focusing on conserved mutations and expression patterns.
+        </p>
+        <div class="project-meta">
+          <span class="meta-tag">R</span>
+          <span class="meta-tag">SQL</span>
+          <span class="meta-tag">ggplot2 · Power BI</span>
+        </div>
+        <p>
+          Built interactive heatmaps, pathway diagrams, and mutation-frequency plots to highlight candidate genes
+          with strong clinical relevance for future diagnostic and trial design work.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Virtual Screening of Allosteric CDK4 Inhibitors</h3>
+        <span class="project-badge">Structural Bioinformatics</span>
+      </div>
+      <div class="project-content">
+        <p>
+          Screened natural product compounds against p27-bound CDK4 to identify potential allosteric ligands that
+          could restore Palbociclib sensitivity in hormone-receptor–positive breast cancer.
+        </p>
+        <div class="project-meta">
+          <span class="meta-tag">BIOVIA Discovery Studio</span>
+          <span class="meta-tag">Docking</span>
+          <span class="meta-tag">Protein–ligand interactions</span>
         </div>
       </div>
     </div>
 
-    <!-- Scrollable "carousel" with more projects -->
-    <div class="projects-more">
-      <h3>More Projects (scroll sideways ➜)</h3>
-      <div class="projects-scroll">
-        <div class="project-card">
-          <div class="project-header">
-            <h3>Virtual Screening of Allosteric CDK4 Inhibitors</h3>
-            <span class="project-badge">Structural Bioinformatics</span>
-          </div>
-          <div class="project-content">
-            <p>
-              Screened natural product compounds against p27-bound CDK4 to identify potential allosteric ligands that
-              could restore Palbociclib sensitivity in hormone-receptor–positive breast cancer.
-            </p>
-            <div class="project-meta">
-              <span class="meta-tag">BIOVIA Discovery Studio</span>
-              <span class="meta-tag">Docking</span>
-              <span class="meta-tag">Protein–ligand interactions</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>Breast Cancer Prognostic Biomarkers</h3>
-            <span class="project-badge">Transcriptomics</span>
-          </div>
-          <div class="project-content">
-            <p>
-              Built a pipeline using DESeq2, STRING, KEGG, DAVID, and survival analysis to find breast cancer
-              genes and miRNAs (e.g., miR-21, PIK3CA) linked to patient outcomes and therapy response.
-            </p>
-            <div class="project-meta">
-              <span class="meta-tag">DESeq2</span>
-              <span class="meta-tag">PPI networks</span>
-              <span class="meta-tag">Survival analysis</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>Pectin-Based Curl-Defining Hair Gel</h3>
-            <span class="project-badge">Biomaterials</span>
-          </div>
-          <div class="project-content">
-            <p>
-              Extracted and characterized pectin from waste fruit peels and used it to formulate a natural curl-defining
-              hair gel as an alternative to synthetic gel agents.
-            </p>
-            <div class="project-meta">
-              <span class="meta-tag">Biomaterials</span>
-              <span class="meta-tag">Analytical methods</span>
-              <span class="meta-tag">Product formulation</span>
-            </div>
-          </div>
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Breast Cancer Prognostic Biomarkers</h3>
+        <span class="project-badge">Transcriptomics</span>
+      </div>
+      <div class="project-content">
+        <p>
+          Built a pipeline using DESeq2, STRING, KEGG, DAVID, and survival analysis to find breast cancer
+          genes and miRNAs (e.g., miR-21, PIK3CA) linked to patient outcomes and therapy response.
+        </p>
+        <div class="project-meta">
+          <span class="meta-tag">DESeq2</span>
+          <span class="meta-tag">PPI networks</span>
+          <span class="meta-tag">Survival analysis</span>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>Pectin-Based Curl-Defining Hair Gel</h3>
+        <span class="project-badge">Biomaterials</span>
+      </div>
+      <div class="project-content">
+        <p>
+          Extracted and characterized pectin from waste fruit peels and used it to formulate a natural curl-defining
+          hair gel as an alternative to synthetic gel agents.
+        </p>
+        <div class="project-meta">
+          <span class="meta-tag">Biomaterials</span>
+          <span class="meta-tag">Analytical methods</span>
+          <span class="meta-tag">Product formulation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- CERTIFICATIONS -->
   <section id="certifications">
     <h2 class="section-title">Training & Certifications</h2>
+    <div class="cert-card">
+        <h3>Master of Software Application (MSA)</h3>
+        <div class="cert-org">Apollo Computer Education Ltd Hosur</div>
+        <p>
+          Developed strong foundations in software applications, analytical skills, and problem-solving relevant to
+          data analysis and computational biology workflows.
+        </p>
+      </div>
+    
     <div class="cert-grid">
       <div class="cert-card">
         <h3>Tissue Engineering Hands-on Training (10 days)</h3>
@@ -1165,16 +1095,7 @@
           Training focused on core genetics concepts, analytical thinking, and biotechnology applications.
         </p>
       </div>
-
-      <div class="cert-card">
-        <h3>Master of Software Application (MSA)</h3>
-        <div class="cert-org">Apollo Computer Education Ltd Hosur</div>
-        <p>
-          Developed strong foundations in software applications, analytical skills, and problem-solving relevant to
-          data analysis and computational biology workflows.
-        </p>
-      </div>
-    </div>
+   </div>    
   </section>
 
   <!-- CONTACT -->
