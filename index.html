@@ -8,11 +8,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: #333;
-      background: #ffffff;
-      line-height: 1.6;
-    }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
 
     /* Navigation */
     nav {
@@ -377,7 +378,7 @@
       font-size: 0.95rem;
     }
 
-    /* Skills Section - Pill Button Style */
+    /* Skills Section */
 #skills {
   background: #f8f9ff;
 }
@@ -470,78 +471,116 @@
 }
 
     /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
+#projects {
+  background: transparent;
+}
+    
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
 
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
+.project-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
 
-    .project-header {
-      padding: 1.8rem;
-      border-bottom: 1px solid #f0f0f0;
-    }
+.project-card:hover::before {
+  opacity: 1;
+}
 
-    .project-header h3 {
-      color: #333;
-      font-size: 1.05rem;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
+.project-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 
-    .project-badge {
-      display: inline-block;
-      background: #f0f4ff;
-      color: #667eea;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
+.project-header h3 {
+  color: #2d3748;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
 
-    .project-content {
-      padding: 1.8rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
+.project-badge {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+}
 
-    .project-content p {
-      color: #666;
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-      font-size: 0.93rem;
-    }
+.project-content p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
 
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
+}
 
-    .meta-tag {
-      background: #f8f9fa;
-      color: #667eea;
-      padding: 0.3rem 0.8rem;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
+.meta-tag {
+  background: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+/* GitHub Icon Button */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F3F4F6;
+  color: #667eea;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  margin-top: 15px;
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+}
 
     /* Experience Section */
     #experience {
@@ -1037,146 +1076,133 @@
 
   <div class="projects-grid">
     <div class="project-card">
-      <div class="project-header">
-        <h3>Cellular Neighborhoods in Non–Small Cell Lung Cancer</h3>
-        <span class="project-badge">CosMx Spatial · NSCLC</span>
+      <h3 class="project-title">Cellular Neighborhoods in Non-Small Cell Lung Cancer</h3>
+      <div class="tags">
+        <span class="tag">CosMx Spatial</span>
+        <span class="tag">NSCLC</span>
       </div>
-      <div class="project-content">
-        <p>
-          Used CosMx FFPE spatial transcriptomics data to study how tumor, immune, and stromal cells are organized
-          within NSCLC tissue and how local neighborhoods relate to invasion and immune activity.
-        </p>
-        <div class="project-meta">
-          <span class="meta-tag">R · Seurat</span>
-          <span class="meta-tag">Spatial coordinates</span>
-          <span class="meta-tag">KNN neighborhoods</span>
-          <span class="meta-tag">Ligand–receptor panels</span>
-        </div>
-        <p>
-          Built k-nearest-neighbor graphs on cell centroids, computed a tumor invasion score, and summarized
-          checkpoint/chemokine signaling between immune "sender" and tumor "receiver" cells.
-        </p>
+      <p class="project-description">
+        Used CosMx FFPE spatial transcriptomics data to study how tumor, immune, and stromal cells are organized within NSCLC tissue and how local neighborhoods relate to invasion and immune activity.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">R</span>
+        <span class="tech-badge">Seurat</span>
+        <span class="tech-badge">Spatial coordinates</span>
+        <span class="tech-badge">KNN neighborhoods</span>
+        <span class="tech-badge">Ligand-receptor panels</span>
       </div>
+      <a href="#" class="github-link">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
     </div>
 
     <div class="project-card">
-      <div class="project-header">
-        <h3>Operational Analytics for Clinical Trial Optimization</h3>
-        <span class="project-badge">Clinical Trial Data · ML</span>
+      <h3 class="project-title">Operational Analytics for Clinical Trial Optimization</h3>
+      <div class="tags">
+        <span class="tag">Clinical Trial Data</span>
+        <span class="tag">ML</span>
       </div>
-      <div class="project-content">
-        <p>
-          Used AACT clinical trial datasets (Phase II/III oncology) in Snowflake to model patient enrollment and
-          trial feasibility, building dashboards for site selection and recruitment strategy.
-        </p>
-        <div class="project-meta">
-          <span class="meta-tag">SQL · Snowflake</span>
-          <span class="meta-tag">R · ML</span>
-          <span class="meta-tag">Power BI</span>
-        </div>
-        <p>
-          Built predictive models (logistic regression, trees, k-NN) and dashboards showing enrollment funnels,
-          demographic breakdowns, and site performance to support CRO-style decision-making.
-        </p>
+      <p class="project-description">
+        Used AACT clinical trial datasets (Phase I/II/III oncology) in Snowflake to model patient enrollment and trial feasibility, building dashboards for site selection and recruitment strategy.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">SQL</span>
+        <span class="tech-badge">Snowflake</span>
+        <span class="tech-badge">R</span>
+        <span class="tech-badge">ML</span>
+        <span class="tech-badge">Power BI</span>
       </div>
+      <a href="#" class="github-link">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
     </div>
 
     <div class="project-card">
-      <div class="project-header">
-        <h3>Comparative Genomics of Disease-Associated Genes</h3>
-        <span class="project-badge">Genomics · Visualization</span>
+      <h3 class="project-title">Comparative Genomics of Disease-Associated Genes</h3>
+      <div class="tags">
+        <span class="tag">Genomics</span>
+        <span class="tag">Visualization</span>
       </div>
-      <div class="project-content">
-        <p>
-          Conducted comparative genomics analysis of genes linked to rare neurological disorders using data from
-          NCBI and Ensembl, focusing on conserved mutations and expression patterns.
-        </p>
-        <div class="project-meta">
-          <span class="meta-tag">R</span>
-          <span class="meta-tag">SQL</span>
-          <span class="meta-tag">ggplot2 · Power BI</span>
-        </div>
-        <p>
-          Built interactive heatmaps, pathway diagrams, and mutation-frequency plots to highlight candidate genes
-          with strong clinical relevance for future diagnostic and trial design work.
-        </p>
+      <p class="project-description">
+        Conducted comparative genomics analysis of genes linked to rare neurological disorders using data from NCBI and Ensembl, focusing on conserved mutations and expression patterns.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">R</span>
+        <span class="tech-badge">SQL</span>
+        <span class="tech-badge">ggplot2</span>
+        <span class="tech-badge">Power BI</span>
       </div>
+      <a href="#" class="github-link">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
     </div>
 
     <div class="project-card">
-      <div class="project-header">
-        <h3>Breast Cancer Prognostic Biomarkers</h3>
-        <span class="project-badge">Transcriptomics</span>
+      <h3 class="project-title">Breast Cancer Prognostic Biomarkers</h3>
+      <div class="tags">
+        <span class="tag">Transcriptomics</span>
       </div>
-      <div class="project-content">
-        <p>
-          Built a pipeline using DESeq2, STRING, KEGG, DAVID, and survival analysis to find breast cancer
-          genes and miRNAs (e.g., miR-21, PIK3CA) linked to patient outcomes and therapy response.
-        </p>
-        <div class="project-meta">
-          <span class="meta-tag">DESeq2</span>
-          <span class="meta-tag">PPI networks</span>
-          <span class="meta-tag">Survival analysis</span>
-        </div>
+      <p class="project-description">
+        Analyzed gene expression data to identify biomarkers associated with breast cancer prognosis and treatment response.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">R</span>
+        <span class="tech-badge">Bioconductor</span>
+        <span class="tech-badge">RNA-seq</span>
       </div>
-    </div>
-    
-    <div class="project-card">
-  <div class="project-header">
-    <h3>Student Performance Prediction Using Ensemble Learning</h3>
-    <span class="project-badge">Education Analytics · ML</span>
-  </div>
-  <div class="project-content">
-    <p>
-      Built an end-to-end machine learning pipeline in R to predict student academic outcomes 
-      based on demographic and preparatory variables, achieving 91% accuracy with Random Forest.
-    </p>
-    <div class="project-meta">
-      <span class="meta-tag">R · tidyverse · caret</span>
-      <span class="meta-tag">Random Forest · GBM</span>
-      <span class="meta-tag">ggplot2 · RMarkdown</span>
-    </div>
-    <p>
-      Analyzed how parental education, test preparation course completion, and socioeconomic 
-      factors impact math, reading, and writing scores. Compared ensemble methods against 
-      logistic regression baselines and created an interactive HTML report for stakeholders.
-    </p>
-  </div>
-</div>
-     <div class="project-card">
-      <div class="project-header">
-        <h3>Virtual Screening of Allosteric CDK4 Inhibitors</h3>
-        <span class="project-badge">Structural Bioinformatics</span>
-      </div>
-      <div class="project-content">
-        <p>
-          Screened natural product compounds against p27-bound CDK4 to identify potential allosteric ligands that
-          could restore Palbociclib sensitivity in hormone-receptor–positive breast cancer.
-        </p>
-        <div class="project-meta">
-          <span class="meta-tag">BIOVIA Discovery Studio</span>
-          <span class="meta-tag">Docking</span>
-          <span class="meta-tag">Protein–ligand interactions</span>
-        </div>
-      </div>
+      <a href="#" class="github-link">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
     </div>
 
     <div class="project-card">
-      <div class="project-header">
-        <h3>Pectin-Based Curl-Defining Hair Gel</h3>
-        <span class="project-badge">Biomaterials</span>
+      <h3 class="project-title">Student Performance Prediction Using Ensemble Learning</h3>
+      <div class="tags">
+        <span class="tag">Education Analytics</span>
+        <span class="tag">ML</span>
       </div>
-      <div class="project-content">
-        <p>
-          Extracted and characterized pectin from waste fruit peels and used it to formulate a natural curl-defining
-          hair gel as an alternative to synthetic gel agents.
-        </p>
-        <div class="project-meta">
-          <span class="meta-tag">Biomaterials</span>
-          <span class="meta-tag">Analytical methods</span>
-          <span class="meta-tag">Product formulation</span>
-        </div>
+      <p class="project-description">
+        Built interactive heatmaps, alluvial diagrams, and multivariate plots to highlight candidate genes with strong clinical relevance for future diagnostic and trial design work.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">Scikit-learn</span>
+        <span class="tech-badge">XGBoost</span>
+        <span class="tech-badge">Pandas</span>
       </div>
+      <a href="https://github.com/Urmeshree/Student-Performance-Prediction" class="github-link">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h3 class="project-title">Virtual Screening of Allosteric CDK4 Inhibitors</h3>
+      <div class="tags">
+        <span class="tag">Structural Bioinformatics</span>
+      </div>
+      <p class="project-description">
+        Performed molecular docking and dynamics simulations to identify potential CDK4 inhibitors with allosteric binding properties.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">PyMOL</span>
+        <span class="tech-badge">AutoDock</span>
+        <span class="tech-badge">GROMACS</span>
+      </div>
+      <a href="#" class="github-link">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
